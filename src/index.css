@@ -1,0 +1,17 @@
+:root {
+  font-family: 'Poppins', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  transition: 'font-size 0s ease-in-out';
+
+  @media screen and (max-width: 40rem) {
+    font-size: 12px;
+  }
+    
+}
+
+body {
+  background-color: aliceblue;
+  padding: 0;
+  overflow-x: hidden;
+  margin: 0;
+}
