@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store/store';
-import { delay } from 'redux-saga/effects';
 
 interface ToastState {
     text: string

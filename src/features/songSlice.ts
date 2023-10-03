@@ -57,6 +57,7 @@ export const SongSlice = createSlice({
             state.isLoadingError = true;
         },
         fetchSongRequest: (state, action: PayloadAction<number>) => {
+            console.log(action)
             state.isLoadingSong = true;
             state.isLoadingSongError = false;
         },
@@ -70,6 +71,7 @@ export const SongSlice = createSlice({
             state.isLoadingSongError = true;
         },
         addSongRequest: (state, action: PayloadAction<AddSongRequestPayload>) => {
+            console.log(action)
             state.isLoadingCreate = true;
             state.isLoadingCreateError = false;
         },
@@ -83,6 +85,7 @@ export const SongSlice = createSlice({
             state.isLoadingCreateError = true;
         },
         editSongRequest: (state, action: PayloadAction<FormData>) => {
+            console.log(action)
             state.isLoadingEdit = true;
             state.isLoadingEditError = false;
         },
@@ -97,6 +100,7 @@ export const SongSlice = createSlice({
             state.isLoadingEditError = true;
         },
         deleteSongRequest: (state, action: PayloadAction<number>) => {
+            console.log(action)
             state.isLoadingDelete = true;
             state.isLoadingDeleteError = false;
         },

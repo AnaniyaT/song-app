@@ -49,7 +49,7 @@ function SongHighlights(props: SongHighlightsProps) {
                     ]
             }>
                 {
-                    songs.slice(0, 3).map((song, index) => (
+                    songs.slice(0, 3).map((song) => (
                         <SongHighlightsItem key={song.id} song={song}/>
                     ))
                 }
