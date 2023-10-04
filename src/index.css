@@ -3,6 +3,7 @@
   -webkit-tap-highlight-color: transparent;
   transition: 'font-size 0s ease-in-out';
 
+  font-size: 14px;
   @media screen and (max-width: 40rem) {
     font-size: 12px;
   }
