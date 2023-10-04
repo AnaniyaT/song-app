@@ -41,7 +41,7 @@ function Modal() {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                zIndex: 100,
+                zIndex: 1000,
                 backdropFilter: 'blur(5px)',
                 WebkitBackdropFilter: 'blur(5px)',
             }}

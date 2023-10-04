@@ -23,7 +23,7 @@ const flexColumn = css`
     `;
 
 const transition = css`
-     transition: all 0.3s;
+     transition: opacity 0.3s, background 0.3s, color 0.3s;
     `;
 
 const scrollbar = css`

@@ -114,7 +114,7 @@ function CreateSongForm(props: CreateSongFormProps) {
                     }
                 ]}>
                     <div css={flexColumn}>
-                        <label htmlFor="name">Name</label>
+                        <label htmlFor="name">Title</label>
                         <Input theme={theme} defaultValue={props.song?.name} type="text" name="name" id="name" />
                     </div>
                     <div css={flexColumn}>
