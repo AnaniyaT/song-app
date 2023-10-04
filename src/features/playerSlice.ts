@@ -10,7 +10,7 @@ interface PlayerState {
 
 const initialState : PlayerState = {
     currentSong: undefined,
-    isVisible: false,
+    isVisible: true,
     isPlaying: false,
 }
 
