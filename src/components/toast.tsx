@@ -22,10 +22,14 @@ function Toast() {
                 top: '6rem',
                 right: visible? '1rem' : '-70rem',
                 opacity: visible ? 1 : 0,
-                transition: 'all 1s ease-in-out',
+                transition: 'right 1s ease-in-out, opacity 1s ease-in-out',
                 zIndex: 100,
                 boxShadow: '0 0 10px rgba(0,0,0,0.1)',
                 minWidth: '10rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '1.5rem',
 
                 '&:before': {
                     zIndex: 1,
@@ -42,20 +46,16 @@ function Toast() {
                 }
             }}
         >
-            {text}
             <button
                 onClick={() => {dispatch(closeToast())}}
                 css={{
                     background: 'none',
                     border: 'none',
                     color: theme.colors.text,
-                    fontSize: '1rem',
+                    fontSize: '1.6rem',
                     cursor: 'pointer',
                     borderRadius: '50%',
                     padding: '.5rem .6rem',
-                    position: 'absolute',
-                    top: '.2rem',
-                    right: '.2rem',
                     display: 'grid',
                     placeItems: 'center',
                     '&:hover': {
@@ -65,6 +65,7 @@ function Toast() {
             >
                 <AiOutlineClose/>
             </button>
+            {text}
         </div>
     )
 }
