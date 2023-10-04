@@ -27,8 +27,8 @@ export const createSong = async (request: AddSongRequestPayload): Promise<Song> 
     let audioUrl = '';
     const formData = new FormData(request.e.currentTarget);
     formData.append('duration', request.duration);
-    console.log(formData.get('song'));
-    if (formData.get('song') != null) {
+    console.log(formData.get('file'));
+    if (formData.get('file') != null) {
     const response = await uploadFileToS3(formData);
     if (response != null) {
         audioUrl = response?.url;
@@ -116,7 +116,7 @@ async function uploadFileToS3(data: FormData) : Promise<FileUploadResponse | nul
   const apiKey = 'Ar6ktykAXRjCEu3LbfH6mz';
 
   const formData = new FormData();
-  formData.append('fileUpload', data.get('song') as Blob);
+  formData.append('fileUpload', data.get('file') as Blob);
 
   try {
     const response = await fetch(apiUrl + `?key=${apiKey}`, {
