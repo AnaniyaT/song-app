@@ -83,7 +83,6 @@ function Player() {
     }
 
     const nextSong = () => {
-        console.log("next")
         if (currentSong == null) {
             dispatch(playSong(songs[0]));
             return;
@@ -98,6 +97,7 @@ function Player() {
 
     const previousSong = () => {
         if (currentSong == null) {
+            
             dispatch(playSong(songs[0]));
             return;
         }
@@ -110,6 +110,10 @@ function Player() {
             previousIndex = songs.length - 1;
         }
         dispatch(playSong(songs[previousIndex]));
+    }
+
+    function handleEnd () {
+        nextSong();
     }
 
     const handleTimeUpdate = () => {
@@ -130,15 +134,15 @@ function Player() {
     useEffect(() => {
         if (playerRef.current) {
           playerRef.current.addEventListener('timeupdate', handleTimeUpdate);
-          playerRef.current.addEventListener('ended', nextSong);
+          playerRef.current.addEventListener('ended', handleEnd);
         }
         return () => {
           if (playerRef.current) {
             playerRef.current.removeEventListener('timeupdate', handleTimeUpdate);
-            playerRef.current.removeEventListener('ended', nextSong);
+            playerRef.current.removeEventListener('ended', handleEnd);
           }
         };
-      }, [playerRef]);
+      }, [playerRef, currentSong]);
 
     useEffect(() => {
         if (playerRef.current) {
