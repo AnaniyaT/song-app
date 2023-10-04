@@ -2,9 +2,11 @@ import { css, useTheme } from "@emotion/react";
 import { Song, Theme } from "../types";
 import { LuMusic2 } from "react-icons/lu";
 import { flexCenter, mq } from "../styles/styles";
+import { useAppDispatch } from "../store/hooks";
+import { playSong } from "../features/playerSlice";
 
 interface SongHighlightsItemProps {
-    song?: Song;
+    song: Song;
 }
 
 const containerHorizontal = {
@@ -13,7 +15,7 @@ const containerHorizontal = {
     display: "flex",
     alignItems: "center",
     gap: "2rem",
-    transition: "all 0.2s ease-in-out",
+    transition: "width 0.2s ease-in-out",
 
     "&:hover div:first-of-type": {
         width: '10rem',
@@ -57,9 +59,11 @@ const imgContainerVertical = css({
 
 function SongHighlightsItem(props: SongHighlightsItemProps) {
     const theme = useTheme() as Theme;
+    const dispatch = useAppDispatch();
 
     return (
         <div
+            onClick={() => {dispatch(playSong(props.song))}}
             css={[
                 containerHorizontal,
                 {

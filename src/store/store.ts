@@ -5,6 +5,7 @@ import { SongSlice } from "../features/songSlice";
 import createSagaMiddleware from "@redux-saga/core";
 import { watchAddSong, watchDeleteSong, watchEditSong, watchFetchSong, watchFetchSongs } from "../features/songSaga";
 import { ToastSlice } from "../features/toastSlice";
+import { PlayerSlice } from "../features/playerSlice";
 
 
 const sagaMiddleware = createSagaMiddleware();
@@ -15,7 +16,8 @@ const store = configureStore({
         theme: themeSlice.reducer,
         modal: modalSlice.reducer,
         song: SongSlice.reducer,
-        toast: ToastSlice.reducer
+        toast: ToastSlice.reducer,
+        player: PlayerSlice.reducer
     },
 
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false}).concat(sagaMiddleware)

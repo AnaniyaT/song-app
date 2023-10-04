@@ -4,6 +4,8 @@ import styled from "@emotion/styled";
 import { flexBetween, mq, transition } from "../styles/styles";
 import SearchInput from "./searchInput";
 import SongInfoPopup from "./songInfoPopup";
+import { useAppDispatch } from "../store/hooks";
+import { playSong } from "../features/playerSlice";
 
 interface SongsListProps {
     songs?: Song[];
@@ -18,10 +20,11 @@ const Table = styled.table({
 const Tr = styled.tr(
     transition,
     {
+        cursor: 'pointer',
         '&:hover div': {
             opacity: 1,
             pointerEvents: 'auto',
-            
+            transform: 'translateY(0)',
         }
     }
 )
@@ -55,12 +58,15 @@ const Td = styled.td({
 function SongsList(props: SongsListProps) {
     const theme = useTheme() as Theme;
     const songs = props.songs ?? [];
+    const dispatch = useAppDispatch();
+
     return (
         <section
             css={{
                 paddingTop: '1rem',
                 border: `1px solid ${theme.colors.grayLight}`,
                 borderBottom: 'none',
+                marginBottom: '12rem',
             }}
         >
             <div css={[flexBetween, {padding: '0 2rem', paddingBottom: '1rem'}]}>
@@ -79,6 +85,7 @@ function SongsList(props: SongsListProps) {
                 <tbody>
                     {songs.map((song, index) => (
                         <Tr 
+                            onClick={() => {dispatch(playSong(song))}}
                             css={{
                                 '&:hover': {
                                     background: theme.colors.primaryHover,

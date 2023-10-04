@@ -32,6 +32,7 @@ function SongInfoPopup(props: SongInfoPopupProps) {
 
     return(
         <div 
+            onClick={(e) => e.stopPropagation()}
             key={props.song?.id}
             css={{
                 opacity: 0,
@@ -43,12 +44,14 @@ function SongInfoPopup(props: SongInfoPopupProps) {
                 background: theme.colors.background,
                 boxShadow: '0 0 10px rgba(0,0,0,0.1)',
                 zIndex: 10,
-                transition: 'all 0.5s ease-in-out',
+                transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out',
                 outline: `1px solid ${theme.colors.grayLight}`,
                 width: '12rem',
+                transform: 'translateY(-1rem)',
                 [mq[2]]: {
-                    width: '20rem',
+                    width: '18rem',
                 },
+               
 
                 ":before": {
                     content: '""',
@@ -65,22 +68,25 @@ function SongInfoPopup(props: SongInfoPopupProps) {
                 }
             }}
         >
-            <h2
-                css={{
-                    fontSize: '1.5rem',
-                    marginBottom: '1rem',
-                }}
-            >
-                {props.song?.name}
-            </h2>
-            <p
-                css={{
-                    fontSize: '1.2rem',
-                    marginBottom: '1rem',
-                }}
-            >
-                {props.song?.artist}
-            </p>
+            <div css={{display: 'flex', flexDirection: 'column', marginTop: '1.5rem'}}>
+                <span
+                    css={{
+                        fontWeight: 700,
+                        fontSize: '2rem',
+                    }}
+                >
+                    {props.song?.name}
+                </span>
+                <span
+                    css={{
+                        fontSize: '1.2rem',
+                        marginBottom: '1rem',
+                    }}
+                >
+                    {props.song?.artist}
+                </span>
+            </div>
+            
             <p
                 css={{
                     fontSize: '1rem',
@@ -88,14 +94,6 @@ function SongInfoPopup(props: SongInfoPopupProps) {
                 }}
             >
                 {props.song?.album}
-            </p>
-            <p
-                css={{
-                    fontSize: '1rem',
-                    marginBottom: '1rem',
-                }}
-            >
-                {props.song?.year}
             </p>
             <div
                 css={{

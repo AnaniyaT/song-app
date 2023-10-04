@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { fetchSongsRequest } from './features/songSlice';
 import Loading from './components/loading';
 import Toast from './components/toast';
+import Player from './components/player';
 
 function App() {
   const theme = useAppSelector(state => state.theme.theme);
@@ -63,6 +64,7 @@ const appearAnimation = css`
         <TopNav/>
         <HomePage/>
         <Modal/>
+        <Player/>
         <Toast/>
       </div>
       }    
